@@ -1,4 +1,4 @@
-# JavaScriptures
+# Artsy x React-Native Workshops
 
 ## Workshop 1.1 - React Native under the hood
 
@@ -38,7 +38,7 @@
 
 ## Workshop 3.1 - React Native Primitives
 
-- Speaker: Maxim
+- Speaker: Eloy + Orta
 - Folder: [`workshops/tooling_for_pleasure`](workshops/tooling_for_pleasure)
 - Topics: 
   - UITableView -> FlatList
@@ -46,9 +46,9 @@
   - y
 
 
-## Day 5 - Flexbox Layouts
+## Workshop 3.2 - Flexbox Layouts
 
-Speaker: orta + alloy
+Speaker: Maxim
 - Folder: [`workshops/flexbox`](workshops/flexbox)
 Topics:
   - Flexbox vs AutoLayout
