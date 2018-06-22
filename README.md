@@ -11,7 +11,7 @@
 11.00 - 11.15: Coffee / bathroom break
 11.15 - 11.40: Learning how to learn
 11.45 - 12:30: Panel (with questions from moderator)
-12.30 - 13.00 Panel (with questions from audience)
+12.30 - 13.00: Panel (with questions from audience)
 13.00 - 14.00: Lunch
 14.00 - 15.15: Workshop set 1 
 15.15 - 15.30: Small coffee / bathroom break
