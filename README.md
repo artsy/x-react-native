@@ -11,7 +11,7 @@
 ## Workshop 1.2 - Building a Components Library
 
 - Speaker: Orta
-- Folder: [`workshops/components_library`](workshops/components_library)
+- Folder: [`workshops/component_library`](workshops/component_library)
 - Topics:
   - Private Specs Repo
   - Talking though GitDawg
