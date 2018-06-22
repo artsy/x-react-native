@@ -2,6 +2,7 @@
 
 ## Schedule
 
+```
 9am - 9.30: Guests arrive and sign in
 9.30 - 9.45: Guests move into presentation space / find seating
 9.45 - 10.00: 15 minute intro talk & housekeeping (organisers + artsy +  facebook)
@@ -17,6 +18,7 @@
 15.30 - 16.45: Workshop set 2 
 16:45 - 17.00: Outro, thanks, and pub details
 17.30 — onwards: Pub / social
+```
 
 ## Talks
 
