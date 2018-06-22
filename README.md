@@ -33,16 +33,21 @@
 
 ### How to introduce React Native into your existing iOS projects
 @alloy take it away! 
+
 [slides will go here]()
 
 ### Artsy Omakase
 @orta
+
 How to tailor your setup to what you want (and probably need)
+
 [slides will go here]()
 
 ### Learning how to learn
 @mennenia
+
 How to stay sane and ship great stuff while moving from native to RN
+
 [slides will go here]()
 
 ## Artsy x React-Native Workshops
