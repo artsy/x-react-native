@@ -1,4 +1,4 @@
-# Artsy x React-Native 
+# Artsy x React-Native
 
 ## Schedule
 
@@ -13,9 +13,9 @@
 11.45 - 12:30: Panel (with questions from moderator)
 12.30 - 13.00: Panel (with questions from audience)
 13.00 - 14.00: Lunch
-14.00 - 15.15: Workshop set 1 
+14.00 - 15.15: Workshop set 1
 15.15 - 15.30: Small coffee / bathroom break
-15.30 - 16.45: Workshop set 2 
+15.30 - 16.45: Workshop set 2
 16:45 - 17.00: Outro, thanks, and pub details
 17.30 — onwards: Pub / social
 ```
@@ -32,11 +32,13 @@
 - Volunteers / people that need pointing out?
 
 ### How to introduce React Native into your existing iOS projects
-@alloy take it away! 
+
+@alloy take it away!
 
 [slides will go here]()
 
 ### Artsy Omakase
+
 @orta
 
 How to tailor your setup to what you want (and probably need)
@@ -44,6 +46,7 @@ How to tailor your setup to what you want (and probably need)
 [slides will go here]()
 
 ### Learning how to learn
+
 @mennenia
 
 How to stay sane and ship great stuff while moving from native to RN
@@ -57,7 +60,7 @@ How to stay sane and ship great stuff while moving from native to RN
 - Speaker: Eloy
 - Folder: [`workshops/under_the_hood`](workshops/under_the_hood)
 - Topics:
-  - One
+  - `react-native init`
   - Two
 
 ### Workshop 1.2 - Building a Components Library
@@ -76,13 +79,13 @@ How to stay sane and ship great stuff while moving from native to RN
 - Topics:
   - Babel
   - Typescript
-  - x
+  - Deployment
 
 ### Workshop 2.2 - React Native Primitives
 
 - Speaker: Maxim + Eloy
 - Folder: [`workshops/tooling_for_pleasure`](workshops/tooling_for_pleasure)
-- Topics: 
+- Topics:
   - UITableView -> FlatList
-  - x
+  -
   - y
