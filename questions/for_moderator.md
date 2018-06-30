@@ -9,3 +9,4 @@
   this cause tension within the engineering group?
 - How do you train engineers from iOS or web backgrounds?
 - How do yo decide if something should be built in native or React Native?
+- Can I use Swift with React Native?
