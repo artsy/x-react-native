@@ -31,25 +31,21 @@
 - Bathrooms, fire exists, etc / the most boring but important stuff
 - Volunteers / people that need pointing out?
 
-### How to introduce React Native into your existing iOS projects
+### How to introduce React Native into your existing iOS projects by [@alloy][]
 
-@alloy take it away!
-
-[slides will go here]()
-
-### Artsy Omakase
-
-@orta
-
-How to tailor your setup to what you want (and probably need)
+How React Native works in a brown-field app.
 
 [slides will go here]()
 
-### Learning how to learn
+### Artsy Omakase by [@orta][]
 
-@mennenia
+The choices we made in the library and tooling eco-system, and how we made them.
 
-How to stay sane and ship great stuff while moving from native to RN
+[slides will go here]()
+
+### Learning how to learn by [@mennenia][]
+
+How to stay sane and ship great stuff while moving from native to React Native.
 
 [slides will go here]()
 
@@ -61,7 +57,8 @@ How to stay sane and ship great stuff while moving from native to RN
 - Folder: [`workshops/under_the_hood`](workshops/under_the_hood)
 - Topics:
   - `react-native init`
-  - Two
+  - The iOS app that this ships with the default template
+  - How React Native
 
 ### Workshop 1.2 - Building a Components Library
 
@@ -77,15 +74,21 @@ How to stay sane and ship great stuff while moving from native to RN
 - Speaker: Orta
 - Folder: [`workshops/minimum_viable_tooling`](workshops/minimum_viable_tooling)
 - Topics:
-  - Babel
-  - Typescript
-  - Deployment
+  - Node / Npm / Yarn
+  - Babel / TypeScript
+  - React Native Packager
+  - Jest
 
 ### Workshop 2.2 - React Native Primitives
 
 - Speaker: Maxim + Eloy
 - Folder: [`workshops/tooling_for_pleasure`](workshops/tooling_for_pleasure)
 - Topics:
-  - UITableView -> FlatList
-  -
-  - y
+  - `View` -> `UIView`
+  - `Text` -> `UILabel
+  - `Image` -> `UIImageView
+  - `FlatList` -> `UITableView`/`UICollectionView`
+
+[@orta]: https://twitter.com/orta
+[@alloy]: https://twitter.com/alloy
+[@mennenia]: https://twitter.com/mennenia

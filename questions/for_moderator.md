@@ -1,0 +1,11 @@
+- What are your thoughts on Android support?
+- How does React Native compare for performance, how do you debug, and find performance problems?
+- How do we get people to think with React Native first?
+- How do we handle Crash reporting?
+- One of the big hype features for React Native is live deployment of JavaScript, do you use it?
+- Have you had any issues with App Review from Apple?
+- Do you think that Apple will change something that will make React Native not work?
+- You talk about de-siloing engineers, but different projects need different constraints like deployment for apps - does
+  this cause tension within the engineering group?
+- How do you train engineers from iOS or web backgrounds?
+- How do yo decide if something should be built in native or React Native?
