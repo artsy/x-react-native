@@ -61,7 +61,8 @@ How to stay sane and ship great stuff while moving from native to RN
 - Folder: [`workshops/under_the_hood`](workshops/under_the_hood)
 - Topics:
   - `react-native init`
-  - Two
+  - The iOS app that this ships with the default template
+  - How React Native
 
 ### Workshop 1.2 - Building a Components Library
 
@@ -77,15 +78,17 @@ How to stay sane and ship great stuff while moving from native to RN
 - Speaker: Orta
 - Folder: [`workshops/minimum_viable_tooling`](workshops/minimum_viable_tooling)
 - Topics:
-  - Babel
-  - Typescript
-  - Deployment
+  - Node / Npm / Yarn
+  - Babel / TypeScript
+  - React Native Packager
+  - Jest
 
 ### Workshop 2.2 - React Native Primitives
 
 - Speaker: Maxim + Eloy
 - Folder: [`workshops/tooling_for_pleasure`](workshops/tooling_for_pleasure)
 - Topics:
-  - UITableView -> FlatList
-  -
-  - y
+  - `View` -> `UIView`
+  - `Text` -> `UILabel
+  - `Image` -> `UIImageView
+  - `FlatList` -> `UITableView`/`UICollectionView`
