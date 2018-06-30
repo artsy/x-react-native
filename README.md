@@ -31,25 +31,21 @@
 - Bathrooms, fire exists, etc / the most boring but important stuff
 - Volunteers / people that need pointing out?
 
-### How to introduce React Native into your existing iOS projects
+### How to introduce React Native into your existing iOS projects by [@alloy][]
 
-@alloy take it away!
-
-[slides will go here]()
-
-### Artsy Omakase
-
-@orta
-
-How to tailor your setup to what you want (and probably need)
+How React Native works in a brown-field app.
 
 [slides will go here]()
 
-### Learning how to learn
+### Artsy Omakase by [@orta][]
 
-@mennenia
+The choices we made in the library and tooling eco-system, and how we made them.
 
-How to stay sane and ship great stuff while moving from native to RN
+[slides will go here]()
+
+### Learning how to learn by [@mennenia][]
+
+How to stay sane and ship great stuff while moving from native to React Native.
 
 [slides will go here]()
 
@@ -92,3 +88,7 @@ How to stay sane and ship great stuff while moving from native to RN
   - `Text` -> `UILabel
   - `Image` -> `UIImageView
   - `FlatList` -> `UITableView`/`UICollectionView`
+
+[@orta]: https://twitter.com/orta
+[@alloy]: https://twitter.com/alloy
+[@mennenia]: https://twitter.com/mennenia
