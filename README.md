@@ -1,5 +1,7 @@
 # Artsy x React-Native
 
+A conference aimed specifically at iOS native engineers who are interested in React Native.
+
 ## Schedule
 
 ```
