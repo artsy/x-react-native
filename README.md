@@ -41,7 +41,8 @@ How React Native works in a brown-field app.
 
 The choices we made in the library and tooling eco-system, and how we made them.
 
-[slides will go here]()
+- [notes](talks/artsy_omakase.md)
+- [slides will go here]()
 
 ### Learning how to learn by [@mennenia][]
 
