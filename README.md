@@ -22,7 +22,7 @@
 
 ## Talks
 
-### Intro & Housekeeping
+### Intro & Housekeeping [@mennenia][]
 
 - Purpose of the day / what to expect
 - Schedule of the day / when to expect it
