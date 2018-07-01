@@ -1,23 +1,21 @@
 ## Node / Npm / Yarn
 
-What is node etc?
+## What is Node
 
 Node is a big open source project that takes the JavaScript runtime out of Google Chrome, and wraps it with a process
 model and an unix-y API. The JavaScript runtime in Chrome is called v8, the equivalent tht you'd know from the iOS world
-is JavaScriptCore. In fact, React Native runs inside JavaScriptCore on iOS, not inside node!
+is JavaScriptCore. In fact, React Native runs inside JavaScriptCore on iOS, not inside Node!
 
-It's worth noting because there are many APIs in node, which are not in React Native. All your tools will be running in
-Node though, so you'll need to understand.
-
-Let's take a look at node itself. You can run install node with `brew install node`. Once you start getting serious with
-JS with a few projects you'll want to look [at nvm](https://github.com/creationix/nvm/).
+Let's take a look at Node itself. You can install Node with `brew install node`. Once you start getting serious with JS
+with a few projects you'll want to look [at nvm](https://github.com/creationix/nvm/) to handle different versions
+elegantly.
 
 #### Running some code in `node`
 
-Let's try and make a one-liner hello world script to run. `cd` to a projects folder, and make a new project called
+Let's try and make a one-liner "hello world" script to run. `cd` to a projects folder, and make a new project called
 `x-node`
 
-- `mkdir x-jest`
+- `mkdir x-node`
 - `touch index.js`
 - Edit the `index.js` to be `console.log("Hello")`
 - Run `node index.js`
@@ -25,38 +23,438 @@ Let's try and make a one-liner hello world script to run. `cd` to a projects fol
 This should output `Hello` to the terminal. Congrats, you're now a JavaScript programmer, please hand in your Swift
 certification on the way out.
 
-So - we've managed to write out a log, it's a good start.
+So - we've managed to write out a log, it's a good start. Let's make a function, change `index.js` to be this:
 
-- Show how to run a file which does `console.log`
+```js
+// https://www.youtube.com/watch?v=czgOWmtGVGs
+var toKurzgesagtYear = year => year + 10000
+```
 
-* Show how to `require` a file
-* Make a "library" by `mkdir node_modules` and adding the `package.json` with a `main`
-* Show how to require that library
+If you add `console.log(toKurzgesagtYear(2018))` and re-run your script with `node index.js` it should print out the
+number `12018`.
 
-How to handle deps
+In JavaScript the boundaries of code resolution is at a file level, not at a "target" like in iOS projects, so if you
+want to use a function from another file - you'll need to include it. We're going to use the `require` function to
+import it. You probably won't do this in production code, but that's OK - we're doing this to understand boundries, not
+perfect code.
 
-- npm is the package manager
-- Unlike CocoaPods npm has no special build projects, or build settings
-- Just puts a bunch of files in a folder in an standard format
+- Make a new file: `touch toKurzgesagtYear.js`
+- Make the code in `toKurzgesagtYear.js`:
 
-How to handle dev deps
+  ```js
+  var toKurzgesagtYear = year => year + 10000
+  module.exports = toKurzgesagtYear
+  ```
 
-- You can define dev dependencies differently from normal dependencies
+- Then we can change `index.js` to require that function:
 
-## Yarn vs NPM
+  ```js
+  const toKurzgesagtYear = require("./toKurzgesagtYear")
+  console.log(toKurzgesagtYear(2018))
+  ```
 
-- fixes merge conflicts
-- `yarn add` makes sense
-- `yarn x` runs the binary
-- readable lockfile
-- resolutions
+Congrats - we now know how to do file imports. Let's go one step further, and turn this into library code.
 
-downsides:
+We want move our `toKurzgesagtYear` into it's own library to do that. For Node, the file system is the source of truth
+for all of your code, so libraries are just folders with a convention. Let's make one that conforms.
 
--have to install yarn
+- `mkdir node_modules`
+- `mkdir node_modules/toKurzgesagtYear`
 
-- doesn't have the security analysis in npm
-- the registry can be down
+Then we add a `package.json` file to `node_modules/toKurzgesagtYear`, this will tell the `require` function where to
+find the code for the library.
+
+- `touch node_modules/toKurzgesagtYear/package.json`
+- Edit `node_modules/toKurzgesagtYear/package.json` to say:
+
+  ```json
+  {
+    "main": "index.js"
+  }
+  ```
+
+- Make `touch node_modules/toKurzgesagtYear/index.js` and have it be the same as `toKurzgesagtYear.js`:
+
+  ```js
+  var toKurzgesagtYear = year => year + 10000
+  module.exports = toKurzgesagtYear
+  ```
+
+OK, now we need to make a minor change to our `index.js`, change
+
+```diff
+- const toKurzgesagtYear = require("./toKurzgesagtYear")
++ const toKurzgesagtYear = require("toKurzgesagtYear")
+console.log(toKurzgesagtYear(2018))
+```
+
+If you run `node index.js` then you should see `12018` and :tada: you've made a library.
+
+### So... ok... how... do we go from that... To this diagram?
+
+![http://devhumor.com/content/uploads/images/August2017/node-modules.jpg](http://devhumor.com/content/uploads/images/August2017/node-modules.jpg)
+
+We use a dependency manager, you have a choice of two. [NPM][] and [Yarn][]. They both have the same dependencies, so
+you're not really losing out if you use either. They compete on features mainly. Both are great.
+
+I use yarn, and because I'm running the workshop - so are you. Install it via `npm install -g yarn` - we're using one
+dependency manager to install another. Meta.
+
+Let's make a new folder, so go out of `x-node` with `cd ..` and make a new folder called `x-yarn` with `mkdir x-yarn`.
+
+Inside `x-yarn` run `yarn init` to create your `package.json` - this is a JSON file that represents your project. Once
+you've filled that out, we're going to add some dependencies to this new project.
+
+We're going to add a dependency, `dadjokes-wrapper`. Because the project is entirely defined inside a JSON file it can
+be handled by tools. So to add a dependency, instead of editing the package.json - you should run this command:
+
+```sh
+yarn add dadjokes-wrapper
+```
+
+That will add it to the package.json and set up a bunch of dependencies. If you're interested in how many dependencies
+that's added, run `ls -1 node_modules | wc -l` and remember that there isn't really something like Foundation from
+Apple - so you end up with this big tree of dependencies.
+
+```
+~/dev/projects/tmp/x-yarn
+❯ tree node_modules/
+node_modules/
+├── @sindresorhus
+│   └── is
+│       ├── dist
+│       │   ├── example.d.ts
+│       │   ├── example.js
+│       │   ├── example.js.map
+│       │   ├── index.d.ts
+│       │   ├── index.js
+│       │   ├── index.js.map
+│       │   └── source
+│       │       ├── index.d.ts
+│       │       ├── index.js
+│       │       ├── index.js.map
+│       │       └── tests
+│       │           ├── test.d.ts
+│       │           ├── test.js
+│       │           └── test.js.map
+│       ├── license
+│       ├── package.json
+│       └── readme.md
+├── cacheable-request
+│   ├── LICENSE
+│   ├── README.md
+│   ├── node_modules
+│   │   └── lowercase-keys
+│   │       ├── index.js
+│   │       ├── package.json
+│   │       └── readme.md
+│   ├── package.json
+│   └── src
+│       └── index.js
+├── clone-response
+│   ├── LICENSE
+│   ├── README.md
+│   ├── package.json
+│   └── src
+│       └── index.js
+├── core-util-is
+│   ├── LICENSE
+│   ├── README.md
+│   ├── float.patch
+│   ├── lib
+│   │   └── util.js
+│   ├── package.json
+│   └── test.js
+├── dadjokes-wrapper
+│   ├── LICENSE
+│   ├── README.md
+│   ├── index.js
+│   ├── package.json
+│   ├── test
+│   │   └── index.spec.js
+│   └── yarn.lock
+├── decode-uri-component
+│   ├── index.js
+│   ├── license
+│   ├── package.json
+│   └── readme.md
+├── decompress-response
+│   ├── index.js
+│   ├── license
+│   ├── package.json
+│   └── readme.md
+├── duplexer3
+│   ├── LICENSE.md
+│   ├── README.md
+│   ├── index.js
+│   └── package.json
+├── from2
+│   ├── LICENSE.md
+│   ├── README.md
+│   ├── index.js
+│   ├── package.json
+│   └── test.js
+├── get-stream
+│   ├── buffer-stream.js
+│   ├── index.js
+│   ├── license
+│   ├── package.json
+│   └── readme.md
+├── got
+│   ├── errors.js
+│   ├── index.js
+│   ├── license
+│   ├── package.json
+│   └── readme.md
+├── has-symbol-support-x
+│   ├── LICENSE
+│   ├── README.md
+│   ├── badges.html
+│   ├── index.js
+│   ├── lib
+│   │   ├── has-symbol-support-x.js
+│   │   ├── has-symbol-support-x.min.js
+│   │   └── has-symbol-support-x.min.js.map
+│   ├── package.json
+│   └── tests
+│       ├── index.html
+│       ├── run.js
+│       └── spec
+│           └── test.js
+├── has-to-string-tag-x
+│   ├── LICENSE
+│   ├── README.md
+│   ├── badges.html
+│   ├── index.js
+│   ├── lib
+│   │   ├── has-to-string-tag-x.js
+│   │   ├── has-to-string-tag-x.min.js
+│   │   └── has-to-string-tag-x.min.js.map
+│   └── package.json
+├── http-cache-semantics
+│   ├── README.md
+│   ├── node4
+│   │   └── index.js
+│   └── package.json
+├── inherits
+│   ├── LICENSE
+│   ├── README.md
+│   ├── inherits.js
+│   ├── inherits_browser.js
+│   └── package.json
+├── into-stream
+│   ├── index.js
+│   ├── license
+│   ├── package.json
+│   └── readme.md
+├── is-object
+│   ├── LICENSE
+│   ├── README.md
+│   ├── index.js
+│   ├── package.json
+│   └── test
+│       └── index.js
+├── is-plain-obj
+│   ├── index.js
+│   ├── license
+│   ├── package.json
+│   └── readme.md
+├── is-retry-allowed
+│   ├── index.js
+│   ├── license
+│   ├── package.json
+│   └── readme.md
+├── isarray
+│   ├── Makefile
+│   ├── README.md
+│   ├── component.json
+│   ├── index.js
+│   ├── package.json
+│   └── test.js
+├── isurl
+│   ├── LICENSE
+│   ├── README.md
+│   ├── index.js
+│   └── package.json
+├── json-buffer
+│   ├── LICENSE
+│   ├── README.md
+│   ├── index.js
+│   ├── package.json
+│   └── test
+│       └── index.js
+├── keyv
+│   ├── LICENSE
+│   ├── README.md
+│   ├── package.json
+│   └── src
+│       └── index.js
+├── lowercase-keys
+│   ├── index.js
+│   ├── license
+│   ├── package.json
+│   └── readme.md
+├── mimic-response
+│   ├── index.js
+│   ├── license
+│   ├── package.json
+│   └── readme.md
+├── normalize-url
+│   ├── index.js
+│   ├── license
+│   ├── package.json
+│   └── readme.md
+├── object-assign
+│   ├── index.js
+│   ├── license
+│   ├── package.json
+│   └── readme.md
+├── p-cancelable
+│   ├── index.js
+│   ├── license
+│   ├── package.json
+│   └── readme.md
+├── p-finally
+│   ├── index.js
+│   ├── license
+│   ├── package.json
+│   └── readme.md
+├── p-is-promise
+│   ├── index.js
+│   ├── license
+│   ├── package.json
+│   └── readme.md
+├── p-timeout
+│   ├── index.js
+│   ├── license
+│   ├── package.json
+│   └── readme.md
+├── pify
+│   ├── index.js
+│   ├── license
+│   ├── package.json
+│   └── readme.md
+├── prepend-http
+│   ├── index.js
+│   ├── license
+│   ├── package.json
+│   └── readme.md
+├── process-nextick-args
+│   ├── index.js
+│   ├── license.md
+│   ├── package.json
+│   └── readme.md
+├── query-string
+│   ├── index.js
+│   ├── license
+│   ├── package.json
+│   └── readme.md
+├── quick-lru
+│   ├── index.js
+│   ├── license
+│   ├── package.json
+│   └── readme.md
+├── readable-stream
+│   ├── CONTRIBUTING.md
+│   ├── GOVERNANCE.md
+│   ├── LICENSE
+│   ├── README.md
+│   ├── doc
+│   │   └── wg-meetings
+│   │       └── 2015-01-30.md
+│   ├── duplex-browser.js
+│   ├── duplex.js
+│   ├── lib
+│   │   ├── _stream_duplex.js
+│   │   ├── _stream_passthrough.js
+│   │   ├── _stream_readable.js
+│   │   ├── _stream_transform.js
+│   │   ├── _stream_writable.js
+│   │   └── internal
+│   │       └── streams
+│   │           ├── BufferList.js
+│   │           ├── destroy.js
+│   │           ├── stream-browser.js
+│   │           └── stream.js
+│   ├── package.json
+│   ├── passthrough.js
+│   ├── readable-browser.js
+│   ├── readable.js
+│   ├── transform.js
+│   ├── writable-browser.js
+│   └── writable.js
+├── responselike
+│   ├── LICENSE
+│   ├── README.md
+│   ├── package.json
+│   └── src
+│       └── index.js
+├── safe-buffer
+│   ├── LICENSE
+│   ├── README.md
+│   ├── index.d.ts
+│   ├── index.js
+│   └── package.json
+├── sort-keys
+│   ├── index.js
+│   ├── license
+│   ├── package.json
+│   └── readme.md
+├── strict-uri-encode
+│   ├── index.js
+│   ├── license
+│   ├── package.json
+│   └── readme.md
+├── string_decoder
+│   ├── LICENSE
+│   ├── README.md
+│   ├── lib
+│   │   └── string_decoder.js
+│   └── package.json
+├── timed-out
+│   ├── index.js
+│   ├── license
+│   ├── package.json
+│   └── readme.md
+├── url-parse-lax
+│   ├── index.js
+│   ├── license
+│   ├── package.json
+│   └── readme.md
+├── url-to-options
+│   ├── LICENSE
+│   ├── README.md
+│   ├── index.js
+│   └── package.json
+└── util-deprecate
+    ├── History.md
+    ├── LICENSE
+    ├── README.md
+    ├── browser.js
+    ├── node.js
+    └── package.json
+
+71 directories, 242 files
+```
+
+Let's make an `index.js` and add this;
+
+```js
+const DadJokes = require("dadjokes-wrapper")
+const dj = new DadJokes()
+
+dj.randomJoke().then(res => console.log(res))
+```
+
+Then run `node index.js` and it should echo out a terrible joke.
+
+```sh
+~/dev/projects/tmp/x-yarn
+❯ node index.js
+This morning I was wondering where the sun was, but then it dawned on me.
+```
+
+Awesome.
 
 ## Babel / TypeScript
 
@@ -202,3 +600,6 @@ Process separation, extensions API carefully expanded
 - Settings.json
 - Extensions.json
 -
+
+[npm]: https://www.npmjs.com
+[yarn]: https://yarnpkg.com/en/
