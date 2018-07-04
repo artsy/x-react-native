@@ -88,8 +88,8 @@ How to stay sane and ship great stuff while moving from native to React Native.
 - Folder: [`workshops/tooling_for_pleasure`](workshops/tooling_for_pleasure)
 - Topics:
   - `View` -> `UIView`
-  - `Text` -> `UILabel
-  - `Image` -> `UIImageView
+  - `Text` -> `UILabel`
+  - `Image` -> `UIImageView`
   - `FlatList` -> `UITableView`/`UICollectionView`
 
 [@orta]: https://twitter.com/orta
