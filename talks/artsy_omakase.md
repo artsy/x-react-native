@@ -97,10 +97,10 @@ trying to access data that actually exists.
   fetched first.
 
 - Fetching data over the network can seem simple at first, until you try to deal with the harsh reality of dealing with
-  software errors, connection issues, etc. Rather than getting bogged down by this in each view, deal with it once in a
-  centralized network layer.
+  software errors, connection issues, etc. Rather than getting bogged down by this in each view, we get to deal with it
+  once in a centralized network layer.
 
-- A centralized network layer opens up possibilities such as better and consistent caching.
+- A centralized network layer opens up possibilities such as better and consistent caching, logging, tracing etc.
 
 _Alternatives_: [Apollo Client][], HTTP requests
 
@@ -175,35 +175,112 @@ test.
 **Better Testing Primitives**
 
 - Jest provides a concept called snapshots, which provides an easy way to compare JavaScript objects. This works really
-  well for hiding large objects outside of your test code.
+  well for hiding large objects outside of your test code. Like image snapshots, but for data.
 
 - One the flip side, you can have sections of your tests _which jest updates_ in your code. `toMatchInlineSnapshot` will
-  take the
+  take the source code inside your test file and update it with the new code entirely. So you can automate small
+  snapshots inline, and larger snapshots into another file.
 
 - Jest's mocking system allows you to mock any file, function or module in your app. It's trivial to do, and has really
   great introspection tools.
 
 _Alternatives_: [Mocha][], [Ava][]
 
-### Storybooks
+### Storybook
 
-[]
+We structured our React Native components as a library. When we first started with React Native it was ok to use the
+native view controller scaffolding to work on a screen. This worked for the first two screens but it became hard to
+treat our components as a library of shared primitives instead of a screen with a set of unique views.
+
+Storybook came to the rescue here, as it provided an isolated development environment for an individual components. I'd
+liken it to making a Swift Playground where you could set up the many potential states a UIView subclass could have. You
+don't (or can't) aim to cover them all, but to provide the general shape of what each one looks like.
+
+Because this works with React, you get instant jumping between them, and can handle hot reloading of code for many
+states as you work. This makes it a total pleasure to work with.
+
+When we first started, there weren't other options, but since then a project called styleguidist has popped up. It's an
+interesting project that
 
 _Alternatives_: [Styleguidist][], Nothing
 
 ### VS Code
 
-[]
+It's an Electron app, sure, but realistically, it's _the_ electron app. Very few Electron apps have this level of
+polish, and Apple could take a considerable amount of ideas from Microsoft's opinions around extensibility. VS Code has
+a really controlled, slowly adopted extension API, where the VS Code team help migrate projects using older APIs.
+
+This made it an exceptional editor to build and improve upon. When we decided to move to React Native, we took a look at
+all of the options for IDE-level support for JavaScript projects. We explored WebStorm, Atom and Sublime Text as
+alternatives.
+
+We didn't want to build our own IDE, which Facebook did with Nuclide, but we wanted to really own the gaps between our
+key projects in the Omakase. So, we baked VS Code settings and extensions into our apps, and slowly showed people how
+much better it was to work in that environment - till eventually we just had critical mass. Then it became worth our
+time to built out vscode-jest and vscode-react-native-storybooks.
 
 _Alternatives_: [Atom][], [Sublime Text][], [TextMate][]
 
-## Bonu
+## Bonus
 
 ### Yarn
 
-[]
+We had a good debate internally about Yarn recently, when we adopted React Native we really felt the pain points of
+JavaScript dependency management- having built and maintained an iOS one for so many years. Yarn came out a couple of
+months after our adoption of NPM and offered features which were needed.
+
+- A lockfile. I know right?
+- Common commands that made more sense - `yarn add danger` vs `npm install --save danger`
+- A fast, reliable, offline cache of node modules
+- It supported everything that npm supported
+
+NPM ships with node, and it basically the de-facto package manager for node projects . Perhaps a good analogy for Yarn
+is if someone recreated CocoaPods as a Swift project and it supported all existing Pods, but made the entire system
+simpler for an end-user and required no effort for library authors. It's an interesting mix of working together, while
+also competing on features. As opposed to what happened in the iOS community, twice.
+
+In time, NPM gained all of these features (except thel cogial commands) and we kinda just stayed with Yarn. We're not
+the only ones either, yarn accounts for 40% (?) of all NPM downloads. Which is why it's in the bonus round.
 
 _Alternatives_: [NPM][]
+
+# Giving Back
+
+We don't want to be idle consumers of these projects. Each of them is a key dependency for us, and we want to both
+encourage and shape their growth. The more people are involved, the more stable, mature and long-lasting these projects
+remain.
+
+Given that I think tech generally gets reshuffled every five years, we need to help make sure these projects live that
+long.
+
+- _React_ / _React Native_, we're not so day-to-day active in the running of these projects, but we're available for
+  CocoaPods issues, and strive to provide a lot of native-focused documentation around what makes them tick.
+
+- _GraphQL_, we're less active here, but we've occasionally helped out on the GraphQL working group.
+
+- _Relay_, we helped create an open source outreach project with the team and try to improve documentation and tooling
+  for people wanting to use Relay with TypeScript.
+
+- _Styled Components_, we've genuinely not had to help out at all here, it's such an active and well maintained project
+  that we've never felt problems with it.
+
+- _TypeScript_, when we originally moved to React Native we chatted with the TypeScript team, and that conversation is
+  what led me working on vscode itself. I co-run the TypeScript NYC meetup, and help maintain a lot of the type
+  definitions for libraries that we use.
+
+- _VS Code_, we've only sent simpler pull requests to VS Code itself, I think most of our contributions come in the form
+  of building extensions and trying to give useful feedback on extension APIs as they come out.
+
+- _Jest_, we built out a lot of the IDE support inside Jest, hang out in the core dev chat room and occasionally try to
+  fix CI.
+
+We're not a massive team, and a lot of this is managed by just me and Alloy, but we care, and that adds a lot of value
+to the community and ourselves. We can feel more secure in the knowledge that our dependencies are not going to
+disappear overnight and dependency owners can feel like more people are invested in the idea.
+
+I've only created one really big multi-year project myself, Danger, the rest has been a case of seeing something else
+that just needed more love and really taken someone's ideas and tried to flesh them out. I find that more satisfying.
+Which is what makes working and co-owning your dependencies so fulfilling.
 
 [angular]: https://angularjs.org
 [nativescript]: https://www.nativescript.org
