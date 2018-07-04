@@ -106,21 +106,82 @@ _Alternatives_: [Apollo Client][], HTTP requests
 
 ### Styled Components
 
-[]
+React Native uses an existing CSS layout model called Flexbox, by using a project called Yoga, this moves all of the
+layout code onto a background thread and allows you to use the same abstractions that web engineers use.
 
-_Alternatives_: StyleSheet.js
+About 2 years ago, the JavaScript community basically took overthrew the idea of separating style and content and joined
+the iOS community in having their app styling be in the same place as their app code. It wraps up the single file
+encapsulation that we were looking for.
+
+_Alternatives_: [StyleSheet.js](https://github.com/ryanflorence/js-stylesheet)
 
 # Dev Tooling
 
 ### TypeScript
 
-[]
+[TypeScript][ts] and [Flow][flow] really moved JavaScript forwards in the last few years. They both tackle the essential
+problems of "how can I trust my code does what I think", "how can I be sure of this change" and "how can I build better
+tools for JavaScript" in different ways.
+
+Yes, the title of this section is TypeScript and yet I instantly include Flow. I don't think you can, or should talk
+about TypeScript without understanding it's relationship to Flow. It's quite possible that you don't know what Flow is,
+so I should explain.
+
+Flow and TypeScript both are JavaScript language extensions that add types to the system. In both cases the types are
+removed at runtime, so you cannot check if an object conforms to a type class in an `if`.
+
+Both [TypeScript][ts-types] and [Flow][flow-types] provide a structure for applying Types to JavaScript.
+
+Both [TypeScript][ts-infer] and [Flow][flow-infer] will infer typing metadata from untyped data.
+
+Both [TypeScript][ts-def] and [Flow][flow-def] have systems for applying types to un-typed node modules.
+
+From our perspective, working with TypeScript in VS Code is Xcode-like level of integration. Microsoft created a new
+standard in how languages and IDEs can communicate with TypeScript that's slowly being adopted by most modern
+languages - the Swift team just adopted it for example.
+
+The language is deeply pragmatic, coming from native it's extremely fast, it's a language that allows you to choose the
+level of strictness in the compiler. If you have a team of iOS engineers coming from Swift, just turn strict mode and
+you've got a useful pedantic compiler. If it's a set of web engineers, don't turn it on and let people use types without
+nullability or function rules.
+
+If you were a JavaScript engineer today, you may also be interested in Reason, a new language from Facebook based on
+OCaml but with a JavaScript swing. If you're into functional languages, you can write extremely typesafe code which
+works with React Native. I've heard it's one of the fastest compilers out there, it's worth keeping an eye on - but
+personally I'm in favour of more traditionally imperative languages.
 
 _Alternatives_: [Flow][], [ReasonML][]
 
 ### Jest
 
-[]
+I can't stress how awesome Jest is. It makes me embarrassed at how bad iOS testing is. Honestly, it's decades away in
+features. Let's try highlight a few key major features.
+
+**The watcher** - The majority of your usage of Jest is with it running in watcher mode. This mode uses your git diff as
+a seed for what to run tests against. Jest will use that diff to define all the files that the changed code touches, and
+then all of the tests that cover those files.
+
+For example, I make a change in one source file and 60 tests run from 6 different test suites. Finishing in under a
+second.
+
+**Fast and safe** - You think the watcher is smart? Well the way Jest handle test suites is also extremely elegant. Jest
+keeps track of how long each test suite took to run, and then will weigh the test suites across different processes in
+order to speed up the overall test suite. If Jest thinks they're all going to be really quick they will all happen in
+one process, as that can also be faster.
+
+Each process is a fresh environment of your app, so you can make changes knowing fully well it won't leak into another
+test.
+
+**Better Testing Primitives**
+
+- Jest provides a concept called snapshots, which provides an easy way to compare JavaScript objects. This works really
+  well for hiding large objects outside of your test code.
+
+- One the flip side, you can have sections of your tests _which jest updates_ in your code. `toMatchInlineSnapshot` will
+  take the
+
+- Jest's mocking system allows you to mock any file, function or module in your app. It's trivial to do, and has really
+  great introspection tools.
 
 _Alternatives_: [Mocha][], [Ava][]
 
