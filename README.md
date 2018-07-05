@@ -37,7 +37,8 @@ A conference aimed specifically at iOS native engineers who are interested in Re
 
 How React Native works in a brown-field app.
 
-[slides will go here]()
+- [slides will go here]()
+- [video will go here]()
 
 ### Artsy Omakase by [@orta][]
 
@@ -45,12 +46,19 @@ The choices we made in the library and tooling eco-system, and how we made them.
 
 - [notes](talks/artsy_omakase.md)
 - [slides will go here]()
+- [video will go here]()
 
 ### Learning how to learn by [@mennenia][]
 
 How to stay sane and ship great stuff while moving from native to React Native.
 
-[slides will go here]()
+- [slides will go here]()
+- [video will go here]()
+
+## Artsy Q & A
+
+- [questions for the moerator](questions/for_moderator.md)
+- [video will go here]()
 
 ## Artsy x React-Native Workshops
 
@@ -68,9 +76,7 @@ How to stay sane and ship great stuff while moving from native to React Native.
 - Speaker: Orta + Maxim
 - Folder: [`workshops/components_library`](workshops/components_library)
 - Topics:
-  - Private Specs Repo
-  - Talking though GitDawg
-  - Going through GitHawk
+  - Going through [this blog post](http://artsy.github.io/blog/2018/04/17/making-a-components-pod/).
 
 ### Workshop 2.1 - Minimum Viable Tooling
 

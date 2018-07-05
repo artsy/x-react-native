@@ -24,6 +24,13 @@ that are functional in the
 [Functional Reactive Programming](https://en.wikipedia.org/wiki/functional_reactive_programming) sense. They act like a
 function which takes some specially declared state and it is rendered into HTML.
 
+Because React has this strict model of how you can define state and state changes on a component, then the library and
+tools can make a lot of assumptions around the rest of the system. For example, you can change the under-laying code of
+an object at runtime, but keep the same state. Making it possible to do hot reloading of live code.
+
+An interesting related anecdote is that the compiler for Dart made special allowances for Flutter to define areas of
+code which can stay between compiler reloads to get the same behavior.
+
 _Alternatives_: [Angular][] + [NativeScript][], [Dart][] + [Flutter][]
 
 ### GraphQL
@@ -143,7 +150,7 @@ languages - the Swift team just adopted it for example.
 The language is deeply pragmatic, coming from native it's extremely fast, it's a language that allows you to choose the
 level of strictness in the compiler. If you have a team of iOS engineers coming from Swift, just turn strict mode and
 you've got a useful pedantic compiler. If it's a set of web engineers, don't turn it on and let people use types without
-nullability or function rules.
+nullability or the complicated rules about ensuring all non-null properties in class constructors.
 
 If you were a JavaScript engineer today, you may also be interested in Reason, a new language from Facebook based on
 OCaml but with a JavaScript swing. If you're into functional languages, you can write extremely typesafe code which

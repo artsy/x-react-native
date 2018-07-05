@@ -454,24 +454,147 @@ Then run `node index.js` and it should echo out a terrible joke.
 This morning I was wondering where the sun was, but then it dawned on me.
 ```
 
-Awesome.
+Awesome. That's basically enough for understanding how node works for this workshop.
 
 ## Babel / TypeScript
 
-Talk about why transpilation exists. E.g. 6to5.
+<!-- You know how we've waited for Swift ABI compatibility, in _simple_ that's because Apple wants to ship a reliable Swift
+runtime with their OS that any app can link and run against. Now imagine if that runtime is created by 5 vendors, and
+ensuring it's up to date is so outside of your control it's not funny.
 
-- Only two transpilers in town, Babel and TypeScript
-- We're going to use the [Babel REPL](https://babeljs.io/repl) and
-  [TypeScript playground](https://www.typescriptlang.org/play/) to explore what this does
+This is basically what it's like shipping JavaScript on the web, but most of the time you just use a runtime feature
+which you want  -->
 
-## React Native Packager
+Imagine if you could only use Swift 1.0 on iOS 9.0, Swift 2.0 on iOS 10, and Swift 3.0 in iOS 11. They all are backwards
+compatible though, so typically you have two choices:
 
-If you've ever worked on a static site generator like Jekyll. You could consider your React Native app to be similar.
-There is a dev mode which watches for changes and keeps the app up to date, and then when you publish it's just a bunch
-of static files.
+- Use 1.0 if you need to support iOS 9.0+
+- Drop iOS 10 support if you want the Swift 3.0 language features
 
-The dev-time watch mode is powered by a project called [Metro](https://github.com/facebook/metro) - it used to be called
-React Native Packager, which is a bit more descriptive for our purposes.
+The JavaScript community came up with a third option:
+
+- Use version 3.0 and add a pre-compile step that converts the source code to 1.0 if the minimum is 9.0, 2.0 if the
+  minimum is 10.0
+
+This is a really pragmatic approach to backwards compatibility within the ecosystem. This source code transformation is
+called transpiling. There are basically two JavaScript transpilers in town, Babel and TypeScript. They both are
+different approaches.
+
+Babel is a plugin-based buffet-style do-what-you-want kind of project, that supports basically all use cases and any
+esoteric idea of what JavaScript _could_ be. The TypeScript transpiler only supports TypeScript the language to
+JavaScript, has no dependencies and only does that one thing.
+
+If you want a bit of a mind-bender, the TypeScript team maintain a way for you to transpile TypeScript inside babel - as
+well as inside the typescript transpiler, weird right? (It's actually really useful, we use this a lot)
+
+So I don't want to dive too deep into here, just make a quick project and show transpilation using both. From there I'd
+recommend digging into the corresponding REPLs for each project.
+
+- [Babel REPL](https://babeljs.io/repl)
+- [TypeScript playground](https://www.typescriptlang.org/play/)
+
+Let's start, just back to your projects directory and make `x-transpilers`, and set up a project
+
+- `cd ../`
+- `mkdir x-transpilers`
+- `cd x-transpilers`
+- `yarn init -y`
+
+Next we add our transpilers:
+
+- `yarn add --dev typescript` for typescript
+- `yarn add --dev babel-cli babel-preset-2015` for babel
+
+If you run `ls ./node_modules/.bin`, you can see all the extra CLI tools that are available from these two projects and
+their dependencies. To execute one of these, run `yarn [cli_command]`. So let's make a really modern JavaScript file.
+
+- `touch fancy_future.js`
+
+```js
+import { readFileSync } from "fs"
+
+// It's a quine
+console.log(readFileSync("fancy_future.js", "utf8"))
+```
+
+When I try run this with node 10 with `node fancy_future.js`, I get:
+
+```sh
+~/dev/projects/x-rn/x-transpile
+❯ node fancy_future.js
+/Users/orta/dev/projects/tmp/x-transpile/fancy_future.js:1
+(function (exports, require, module, __filename, __dirname) { import { readFileSync } from 'fs'
+                                                                     ^
+
+SyntaxError: Unexpected token {
+    at new Script (vm.js:74:7)
+    at createScript (vm.js:246:10)
+    at Object.runInThisContext (vm.js:298:10)
+    [...]
+```
+
+Which is a runtime syntax error, but this is the type of code you _should_ be writing. So we need to transpile it, let's
+first try it with TypeScript.
+
+As this file is a `.js` file, we'll need to tell TypeScript to allow transpiling JavaScript files, and to put the file
+in a `_ts` folder.
+
+```sh
+yarn tsc fancy_future.js  --allowJs --outDir _ts
+```
+
+If you go look, you'll see a JS file like:
+
+```js
+"use strict"
+exports.__esModule = true
+var fs_1 = require("fs")
+// It's a quine
+console.log(fs_1.readFileSync("fancy_future.js", "utf8"))
+```
+
+You can see that it kept our comment, added some extra metadata at the top and changed out `import` to be `require` like
+the examples above. This will now run on very old JavaScript runtimes, and actually, the most modern ones too.
+
+Let's try give babel a run. As we need to define our plugins, we'll use the recommended "env" preset, that determines
+what plugins you want based on your environment. To use this, create a new file:
+
+- `touch .babelrc`
+
+```json
+{
+  "presets": [
+    [
+      "env",
+      {
+        "targets": {
+          "node": "current"
+        }
+      }
+    ]
+  ]
+}
+```
+
+Then run:
+
+```sh
+yarn babel --out-dir _babel fancy_future.js
+```
+
+You should get:
+
+```js
+"use strict"
+
+var _fs = require("fs")
+
+// It's a quine
+console.log((0, _fs.readFileSync)("fancy_future.js", "utf8"))
+```
+
+Which is similar to the TypeScript version but different. Not enough that we should be focusing on it, but you can
+google for `"use strict javascript"` or `"exports.__esModule"` to look into them.
 
 ## Jest
 
@@ -589,17 +712,46 @@ There's one more thing worth showing when looking at the overview of testing wit
 like FBSnapshots in iOS world, where you have a screenshot of a screen, but instead it's a snapshot of data.
 
 ```js
+...
 ```
 
-## VS Code
+## React Native Packager
 
-What makes vscode a solid foundation for building JS projects?
+If you've ever worked on a static site generator like Jekyll. You could consider your React Native app to be similar.
+There is a dev mode which watches for changes and keeps the app up to date, and then when you publish it's just a bunch
+of static files.
 
-Process separation, extensions API carefully expanded
+The dev-time watch mode is powered by a project called [Metro](https://github.com/facebook/metro) - it used to be called
+React Native Packager, which is a bit more descriptive for our purposes. I'll be using that name.
 
-- Settings.json
-- Extensions.json
--
+The responsibilities of the React Native Packager are two-fold:
+
+- Compile you app's JS for distribution
+- Provide a fast development environment by letting a clients connect via web-sockets and notify them about code updates
+
+To dive in, we're going to need a React Native project. Run `react-native init x-rnp` in your projects directory.
+
+- `cd ..`
+- `react-native init x-rnp`
+- `cd x-rnp`
+
+This will take you into a working project. To tackle the simplest responsibility, building for distribution, we can run
+`react-native bundle` on the default template:
+
+```sh
+yarn react-native bundle --entry-file index.js --bundle-output distribution.js
+```
+
+That takes all the JS from the App, and transpiles it down to working code for running inside JavaScriptCore later.
+
+If you run `yarn react-native start` then it will handle the second responsibility:
+
+```sh
+yarn react-native start
+```
+
+This starts up a watcher for file changes, it will transpile them and notify any running React Native Apps in dev mode
+that the JavaScript has changed, and what file it should try to re-create.
 
 [npm]: https://www.npmjs.com
 [yarn]: https://yarnpkg.com/en/

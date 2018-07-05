@@ -1,12 +1,23 @@
-- What are your thoughts on Android support?
-- How does React Native compare for performance, how do you debug, and find performance problems?
-- How do we get people to think with React Native first?
-- How do we handle Crash reporting?
-- One of the big hype features for React Native is live deployment of JavaScript, do you use it?
-- Have you had any issues with App Review from Apple?
-- Do you think that Apple will change something that will make React Native not work?
+- What type of Apps is React Native a good fit for? - `[maxim]`
+- What type of Apps is React Native a bad fit fot? - `[alloy]`
+- Why didn't Swift solve your problems? - `[alloy]`
+- What are your thoughts on Android support? - `[alloy]`
+- How does React Native compare for performance, how do you debug, and find performance problems? -[`maxim/alloy]`
+- How do we get people to think with React Native first? - `[maxim]`
+- How do you handle the tension around React Native's lack of a general roadmap `[alloy]`
+- How do we handle Crash reporting? - `[alloy]`
+- How do we handle cross-cutting concerns like Analytics? - `[maxim]`
+- One of the big hype features for React Native is live deployment of JavaScript, do you use it? - `[orta]`
+- Have you had any issues with App Review from Apple? - `[maxim]`
+- Do you think that Apple will change something that could make React Native not work? -[`alloy/orta]`
 - You talk about de-siloing engineers, but different projects need different constraints like deployment for apps - does
-  this cause tension within the engineering group?
-- How do you train engineers from iOS or web backgrounds?
-- How do yo decide if something should be built in native or React Native?
-- Can I use Swift with React Native?
+  this cause tension within the engineering group? - `[alloy/orta]`
+- Does de-siloing engineers de-skill them? - `[alloy/maxim]`
+- How do you train engineers from iOS or web backgrounds on React Native? - `[orta]`
+- How do you decide if something should be built in native or React Native? - `[alloy/orta]`
+- Can I use Swift with React Native? - `[orta/alloy]`
+- Where would you recommend resources for learning:
+  - Node? - `[orta]`
+  - React Native? - `[orta]`
+  - JavaScript? - `[orta]`
+  - Flexbox layout? - `[maxim]`
