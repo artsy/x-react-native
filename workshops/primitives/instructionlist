@@ -5,3 +5,20 @@ Workshop instructions:
 3) Yarn start
 4) Run app from Xcode
 5) Check that it's running
+
+Phase 1:
+
+Turn this into a proper and pretty list
+
+Using:
+- Buttons
+- UILabels
+- etc
+
+Step 1:
+Create a new component
+
+BreadItem
+- interface
+- keep it empty
+- then return <Text> to show that it stays the same
