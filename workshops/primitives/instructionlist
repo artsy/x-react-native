@@ -47,3 +47,12 @@ now the buttons
 
 don't include surrounding view
 show that it stretches, so put the view in the addbutton file
+
+Then add final styling, get into flexbox-grow and ratios. show through coloured background images
+
+wrap up the card, done. (add border if you want or not)
+
+then we move on to add a recipe bit at the top. We open final folder, that contains some work already done. I point out that if people are curious
+they can look in the source to see how overlays are done, but otherwise, we're going to make this flatlist horizontal.
+
+step one horizontal=true

@@ -1,14 +1,17 @@
 [
     {
     "title": "Quick Brekkie",
-    "img":"https://github.com/artsy/x-react-native/blob/master/workshops/primitives/resources/images/quick.jpg?raw=true"
+    "img":"https://github.com/artsy/x-react-native/blob/master/workshops/primitives/resources/images/quick.jpg?raw=true",
+    "key":"0"
 },
 {
     "title": "Weekend Brunch",
-    "img":"https://github.com/artsy/x-react-native/blob/master/workshops/primitives/resources/images/brunch.jpg?raw=true"
+    "img":"https://github.com/artsy/x-react-native/blob/master/workshops/primitives/resources/images/brunch.jpg?raw=true",
+    "key":"1"
 },
 {
     "title": "Timeless Classic",
-    "img":"https://github.com/artsy/x-react-native/blob/master/workshops/primitives/resources/images/timeless.jpg?raw=true"
+    "img":"https://github.com/artsy/x-react-native/blob/master/workshops/primitives/resources/images/timeless.jpg?raw=true",
+    "key":"2"
 }
 ]

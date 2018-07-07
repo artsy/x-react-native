@@ -25,9 +25,10 @@ const styles = StyleSheet.create({
     flex: 1,
     height: 160,
     width: 355,
-    marginLeft: 10,
     overflow: "hidden",
     borderRadius: 2,
+    marginLeft: 5,
+    marginRight: 5,
   },
   imageStyle: {
     width: "100%",
