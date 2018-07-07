@@ -14,7 +14,7 @@ export default class BreadItem extends React.Component<BreadProps, any> {
   render() {
     return (
       <View style={styles.container}>
-        <Image source={{ uri: this.props.bread.img }} resizeMode="center" style={styles.imageStyle} />
+        <Image source={{ uri: this.props.bread.img }} resizeMode="stretch" style={styles.imageStyle} />
         <View style={styles.metadataContainer}>
           <View style={styles.topContainer}>
             <Text style={styles.breadTitle}>{this.props.bread.name}</Text>
@@ -40,6 +40,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderTopWidth: 1,
     borderColor: "#D8D8D8",
+    overflow: "hidden",
   },
   metadataContainer: {
     flex: 1,
@@ -69,6 +70,6 @@ const styles = StyleSheet.create({
   },
   imageStyle: {
     width: 160,
-    height: 160,
+    height: 158,
   },
 })
