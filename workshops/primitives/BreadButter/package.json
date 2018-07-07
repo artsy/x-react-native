@@ -16,6 +16,7 @@
     "babel-jest": "23.2.0",
     "babel-preset-react-native": "5.0.2",
     "jest": "23.3.0",
+    "prettier": "^1.13.7",
     "react-native-typescript-transformer": "^1.2.10",
     "react-test-renderer": "16.4.1",
     "typescript": "^2.9.2"

@@ -1,0 +1,7 @@
+Workshop instructions:
+
+1) Get basic setup from GH
+2) Yarn install
+3) Yarn start
+4) Run app from Xcode
+5) Check that it's running

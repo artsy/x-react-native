@@ -1,0 +1,37 @@
+[
+  {
+    "name": "Sourdough",
+    "price": "3.45",
+    "bakery": "Karaway Bakery",
+    "img": "",
+    "key": "0"
+  },
+  {
+    "name": "Dark Rye",
+    "price": "4.20",
+    "bakery": "The Nordic Bakery",
+    "img": "",
+    "key": "1"
+  },
+  {
+    "name": "Wholewheat Bloomer",
+    "price": "2.70",
+    "bakery": "BreadBread Bakery",
+    "img": "",
+    "key": "2"
+  },
+  {
+    "name": "Ciabatta",
+    "price": "1.99",
+    "bakery": "Bread Ahead",
+    "img": "",
+    "key": "3"
+  },
+  {
+    "name": "Spelt Bread",
+    "price": "3.25",
+    "bakery": "BreadBread Bakery",
+    "img": "",
+    "key": "4"
+  }
+]
