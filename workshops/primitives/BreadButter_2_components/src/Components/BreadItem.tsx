@@ -1,5 +1,6 @@
 import React from "react"
 import { StyleSheet, Image, Text, View } from "react-native"
+import AddButton from "./AddButton"
 
 interface BreadProps {
   bread: {
@@ -15,12 +16,13 @@ export default class BreadItem extends React.Component<BreadProps, any> {
       <View style={styles.container}>
         <Image source={{ uri: this.props.bread.img }} resizeMode="center" style={styles.imageStyle} />
         <View style={styles.metadataContainer}>
-          <View>
+          <View style={styles.topContainer}>
             <Text style={styles.breadTitle}>{this.props.bread.name}</Text>
             <Text style={styles.bakeryPriceTitle}>{this.props.bread.bakery}</Text>
           </View>
           <View style={styles.bottomContainer}>
             <Text style={styles.bakeryPriceTitle}>{this.props.bread.price}</Text>
+            <AddButton />
           </View>
         </View>
       </View>
@@ -35,6 +37,9 @@ const styles = StyleSheet.create({
     height: 160,
     backgroundColor: "#FFFFFF",
     marginBottom: 10,
+    borderBottomWidth: 1,
+    borderTopWidth: 1,
+    borderColor: "#D8D8D8",
   },
   metadataContainer: {
     flex: 1,
@@ -43,9 +48,16 @@ const styles = StyleSheet.create({
     paddingTop: 20,
     paddingLeft: 20,
   },
-  topContainer: {},
+  topContainer: {
+    flexGrow: 3,
+  },
   bottomContainer: {
-    paddingBottom: 20,
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "flex-end",
+    paddingBottom: 10,
+    paddingRight: 10,
   },
   breadTitle: {
     fontWeight: "bold",

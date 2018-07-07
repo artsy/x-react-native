@@ -40,3 +40,10 @@ See text styling in action
 introduce background colours and margins and padding
 
 then add flexbox
+
+then add images, rearrage the CSS
+
+now the buttons
+
+don't include surrounding view
+show that it stretches, so put the view in the addbutton file
