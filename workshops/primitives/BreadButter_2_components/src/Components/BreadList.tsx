@@ -1,15 +1,18 @@
 import React from "react"
 import { FlatList, StyleSheet, View } from "react-native"
 
-import data from "../data/breads"
+import breads from "../data/breads"
+import recipes from "../data/recipes"
 
 import BreadItem from "./BreadItem"
+import RecipeItem from "./RecipeItem"
 
 export default class BreadList extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <FlatList data={data} renderItem={({ item }) => <BreadItem bread={item} />} />
+        <FlatList data={recipes} renderItem={({ item }) => <RecipeItem recipe={item} />} />
+        <FlatList data={breads} renderItem={({ item }) => <BreadItem bread={item} />} />
       </View>
     )
   }

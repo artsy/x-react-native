@@ -10,7 +10,7 @@ interface BreadProps {
     img: string
   }
 }
-export default class BreadItem extends React.Component<BreadProps, null> {
+export default class BreadItem extends React.Component<BreadProps> {
   render() {
     return (
       <View style={styles.container}>

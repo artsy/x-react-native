@@ -1,0 +1,14 @@
+[
+    {
+    "title": "Quick Brekkie",
+    "img":"https://github.com/artsy/x-react-native/blob/master/workshops/primitives/resources/images/quick.jpg?raw=true"
+},
+{
+    "title": "Weekend Brunch",
+    "img":"https://github.com/artsy/x-react-native/blob/master/workshops/primitives/resources/images/brunch.jpg?raw=true"
+},
+{
+    "title": "Timeless Classic",
+    "img":"https://github.com/artsy/x-react-native/blob/master/workshops/primitives/resources/images/timeless.jpg?raw=true"
+}
+]
