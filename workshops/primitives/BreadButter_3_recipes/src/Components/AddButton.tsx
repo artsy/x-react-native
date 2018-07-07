@@ -1,7 +1,7 @@
 import React from "react"
 import { StyleSheet, Text, TouchableHighlight, View } from "react-native"
 
-export default class AddButton extends React.Component {
+export default class AddButton extends React.Component<any, any> {
   render() {
     return (
       <View style={styles.container}>
