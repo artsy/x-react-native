@@ -3,35 +3,35 @@
     "name": "Sourdough",
     "price": 3.45,
     "bakery": "Karaway Bakery",
-    "img": "",
+    "img": "images/sourdough.jpg",
     "key": "0"
   },
   {
     "name": "Dark Rye",
-    "price": 4.20,
+    "price": 4.25,
     "bakery": "The Nordic Bakery",
-    "img": "",
+    "img": "file://images/rye.jpg",
     "key": "1"
   },
   {
     "name": "Wholewheat Bloomer",
-    "price": 2.70,
+    "price": 2.60,
     "bakery": "BreadBread Bakery",
-    "img": "",
+    "img": "images/wholewheat.jpg",
     "key": "2"
   },
   {
     "name": "Ciabatta",
     "price": 1.99,
     "bakery": "Bread Ahead",
-    "img": "",
+    "img": "images/ciabatta.jpg",
     "key": "3"
   },
   {
-    "name": "Spelt Bread",
-    "price": 3.25,
-    "bakery": "BreadBread Bakery",
-    "img": "",
+    "name": "Nut Loaf",
+    "price": 4.25,
+    "bakery": "The Nordic Bakery",
+    "img": "images/nutloaf.jpg",
     "key": "4"
   }
 ]

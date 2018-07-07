@@ -22,3 +22,21 @@ BreadItem
 - interface
 - keep it empty
 - then return <Text> to show that it stays the same
+
+great
+
+Now let's create the view structure
+and put in the right props
+
+done
+
+Run
+
+Now let's add the stylesheets
+
+for Text
+See text styling in action
+
+introduce background colours and margins and padding
+
+then add flexbox

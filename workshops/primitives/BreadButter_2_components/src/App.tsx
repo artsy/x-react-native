@@ -19,7 +19,7 @@ export default class App extends Component<Props> {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: 40,
-    marginLeft: 20,
+    paddingTop: 40,
+    backgroundColor: "#e5e5e5",
   },
 })
