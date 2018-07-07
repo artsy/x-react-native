@@ -1,37 +1,37 @@
 [
   {
     "name": "Sourdough",
-    "price": 3.45,
+    "price": "£3.45",
     "bakery": "Karaway Bakery",
-    "img": "images/sourdough.jpg",
+    "img": "https://github.com/artsy/x-react-native/blob/master/workshops/primitives/resources/images/sourdough.jpg?raw=true",
     "key": "0"
   },
   {
     "name": "Dark Rye",
-    "price": 4.25,
+    "price": "£4.25",
     "bakery": "The Nordic Bakery",
-    "img": "file://images/rye.jpg",
+    "img": "https://github.com/artsy/x-react-native/blob/master/workshops/primitives/resources/images/rye.jpg?raw=true",
     "key": "1"
   },
   {
     "name": "Wholewheat Bloomer",
-    "price": 2.60,
+    "price": "£2.60",
     "bakery": "BreadBread Bakery",
-    "img": "images/wholewheat.jpg",
+    "img": "https://github.com/artsy/x-react-native/blob/master/workshops/primitives/resources/images/wholewheat.jpg?raw=true",
     "key": "2"
   },
   {
     "name": "Ciabatta",
-    "price": 1.99,
+    "price": "£1.99",
     "bakery": "Bread Ahead",
-    "img": "images/ciabatta.jpg",
+    "img": "https://github.com/artsy/x-react-native/blob/master/workshops/primitives/resources/images/ciabatta.jpg?raw=true",
     "key": "3"
   },
   {
     "name": "Nut Loaf",
-    "price": 4.25,
+    "price": "£4.25",
     "bakery": "The Nordic Bakery",
-    "img": "images/nutloaf.jpg",
+    "img": "https://github.com/artsy/x-react-native/blob/master/workshops/primitives/resources/images/nutloaf.jpg?raw=true",
     "key": "4"
   }
 ]
