@@ -1,7 +1,7 @@
 import React from "react"
 import { FlatList, StyleSheet, View } from "react-native"
 
-import breads from "./data/breads"
+import breads from "./data/breads.json"
 
 import BreadItem from "./Components/BreadItem"
 
@@ -17,6 +17,6 @@ export default class App extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: 30,
-  },
+    paddingTop: 30
+  }
 })
