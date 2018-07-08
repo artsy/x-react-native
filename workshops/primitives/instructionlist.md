@@ -194,10 +194,6 @@ const styles = StyleSheet.create({
 	fontWeight: "300",
 	fontSize: 14,
   },
-  imageStyle: {
-	width: 160,
-	height: 158,
-  },
 })
 ```
 
@@ -230,9 +226,7 @@ const styles = StyleSheet.create({
 	// more later, don't worry ;)
   },
   bottomContainer: {
-	flex: 1,
-	flexDirection: "row",
-	justifyContent: "space-between",
+	// more later, don't worry ;)
   },
   breadTitle: {
 	fontWeight: "bold",

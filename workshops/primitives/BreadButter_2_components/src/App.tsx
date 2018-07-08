@@ -1,11 +1,22 @@
 import React from "react"
-import { Component } from "react"
+import { FlatList, StyleSheet, View } from "react-native"
 
-import BreadList from "./Components/BreadList"
+import breads from "./data/breads"
 
-type Props = {}
-export default class App extends Component<Props> {
+import BreadItem from "./Components/BreadItem"
+
+export default class App extends React.Component {
   render() {
-    return <BreadList />
+    return (
+      <View style={styles.container}>
+        <FlatList data={breads} renderItem={({ item }) => <BreadItem bread={item} />} />
+      </View>
+    )
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    paddingTop: 30,
+  },
+})

@@ -1,11 +1,11 @@
 import React from "react"
-import { Component } from "react"
 import { FlatList, StyleSheet, Text, View } from "react-native"
 
 import breads from "./data/breads"
 
-type Props = {}
-export default class App extends Component<Props> {
+// import BreadItem from "./Components/BreadItem"
+
+export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>

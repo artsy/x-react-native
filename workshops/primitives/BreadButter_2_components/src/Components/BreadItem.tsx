@@ -13,16 +13,16 @@ interface BreadProps {
 export default class BreadItem extends React.Component<BreadProps> {
   render() {
     return (
-      <View style={styles.container}>
-        <Image source={{ uri: this.props.bread.img }} resizeMode="stretch" style={styles.imageStyle} />
-        <View style={styles.metadataContainer}>
-          <View style={styles.topContainer}>
-            <Text style={styles.breadTitle}>{this.props.bread.name}</Text>
-            <Text style={styles.bakeryPriceTitle}>{this.props.bread.bakery}</Text>
+      <View>
+        <Image source={{ uri: "myurl" }} />
+        <View>
+          <View>
+            <Text>{this.props.bread.name}</Text>
+            <Text>{this.props.bread.bakery}</Text>
           </View>
-          <View style={styles.bottomContainer}>
-            <Text style={styles.bakeryPriceTitle}>{this.props.bread.price}</Text>
-            <AddButton />
+          <View>
+            <Text>{this.props.bread.price}</Text>
+            {/* <AddButton /> */}
           </View>
         </View>
       </View>
@@ -31,45 +31,5 @@ export default class BreadItem extends React.Component<BreadProps> {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    flexDirection: "row",
-    height: 160,
-    backgroundColor: "#FFFFFF",
-    marginBottom: 10,
-    borderBottomWidth: 1,
-    borderTopWidth: 1,
-    borderColor: "#D8D8D8",
-    overflow: "hidden",
-  },
-  metadataContainer: {
-    flex: 1,
-    flexDirection: "column",
-    justifyContent: "space-between",
-    paddingTop: 20,
-    paddingLeft: 20,
-  },
-  topContainer: {
-    flexGrow: 3,
-  },
-  bottomContainer: {
-    flex: 1,
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "flex-end",
-    paddingBottom: 10,
-    paddingRight: 10,
-  },
-  breadTitle: {
-    fontWeight: "bold",
-    fontSize: 14,
-  },
-  bakeryPriceTitle: {
-    fontWeight: "300",
-    fontSize: 14,
-  },
-  imageStyle: {
-    width: 160,
-    height: 158,
-  },
+  container: {},
 })
