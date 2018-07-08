@@ -47,9 +47,9 @@ As a client, you
 "[JSON-shaped query](http://graphql.org/docs/getting-started/#queries)" structure, which is hierarchical and easy to
 read:
 
-```json
+```graphql
 {
-  "artwork"(id: "kimber-berry-as-close-to-magic-as-you-can-get") {
+  artwork(id: "kimber-berry-as-close-to-magic-as-you-can-get") {
     id
     additional_information
 
@@ -119,6 +119,10 @@ layout code onto a background thread and allows you to use the same abstractions
 About 2 years ago, the JavaScript community basically took overthrew the idea of separating style and content and joined
 the iOS community in having their app styling be in the same place as their app code. It wraps up the single file
 encapsulation that we were looking for.
+
+Styled Component allows you to write CSS in a string, which is then interpreted into styles which are applied in an
+isolated way. This is worth highlighting because the C in CSS is cascading, and React Native does not support that. So
+encouraging Styled Components means encouraging building components in a way
 
 _Alternatives_: [StyleSheet.js](https://github.com/ryanflorence/js-stylesheet)
 
