@@ -66,7 +66,7 @@ Things to cover:
   - E.g. React's strict definitions of state and props allows other code to change under the hood
 - Make a change, watch it change
 
-### Adding a native callback in Swift
+### Adding a Native Module in Swift
 
 - [see this tutorial for images](https://moduscreate.com/blog/swift-modules-for-react-native/)
 
