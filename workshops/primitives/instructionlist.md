@@ -56,9 +56,9 @@ Now, for the new component itself:
 
 ```
 export default class BreadItem extends React.Component<BreadProps> { 
-render() {
-return <Text>{this.props.bread.name}</Text>
-}
+    render() {
+        return <Text>{this.props.bread.name}</Text>
+    }
 }
 ```
 
@@ -76,11 +76,12 @@ When you reload in the simulator (`⌘R`), you should see that things are… exa
 Now, let’s add that extra richness and design to each of our breads. 
 
 We can use this stripped down design to dictate our elements and positioning:
-cell_image_
+
+![Cell Layout](cell.png)
 
 Now, we want to nest our elements within `<View>`s, because can apply container styles to these views, which allow us to float all components around exactly how we want them. 
 
-_viewhierarchy_
+![viewhierarchy](viewhierarchy.png)
 
 So, that ends up like:
 
@@ -201,12 +202,7 @@ const styles = StyleSheet.create({
 
 Right. Now we’ve we’ve got cards, and we’re going to lay the items out. Remember this view structure? We represented this in the JSX, but not yet with styling, so it’s visible to the user. 
 
-The way to make this happen is through Flexbox.
-
-Explain flexbox a little
-
-Rows, and columns, justifycontent, and alignitems.
-space between
+Follow with the workshop, but copy if necessary :)
 
 ```
 const styles = StyleSheet.create({
@@ -220,13 +216,15 @@ const styles = StyleSheet.create({
   metadataContainer: {
 	flex: 1,
 	flexDirection: "column",
-	justifyContent: "space-between",
+	justifyContent: "space-between"
+	paddingTop: 20,
+	paddingLeft: 20,
   },
   topContainer: {
 	// more later, don't worry ;)
   },
   bottomContainer: {
-	// more later, don't worry ;)
+	paddingBottom: 20,
   },
   breadTitle: {
 	fontWeight: "bold",
@@ -241,12 +239,10 @@ const styles = StyleSheet.create({
 
 ### Images 
 
-overflow hidden => like clips to bounds
-resizeMode => similar to what you had on UIImage
-set the height and width in styles
+Setting overflow to hidden, is like clips to bounds
+Set the height and width in styles, which is necessary for any data and url based images
 URI is an object
 
-code:
 ```
 	  <View style={styles.container}>
 		<Image source={{ uri: this.props.bread.img }} resizeMode="stretch" style={styles.imageStyle} />
@@ -281,9 +277,6 @@ const styles = StyleSheet.create({
   topContainer: {
   },
   bottomContainer: {
-	flex: 1,
-	flexDirection: "row",
-	justifyContent: "space-between",
 	paddingBottom: 20,
   },
   breadTitle: {
@@ -303,7 +296,7 @@ const styles = StyleSheet.create({
 
 ### Buttons 
 
-Now we’ll look at `AddButton.tsx`
+Now we’ll look at `AddButton.tsx`. This should already be in the project. 
 
 ```
 export default class AddButton extends React.Component {
@@ -334,9 +327,22 @@ const styles = StyleSheet.create({
 })
 ```
 
-You need to add a containing view around the button. 
+Adding it (or uncommenting it in `BreadItem.tsx`), should show it in the view... or not?
 
-so this becomes:
+We need flex again :). 
+
+```
+  bottomContainer: {
+  	flex: 1,
+	flexDirection: "row",
+	justifyContent: "space-between",
+	paddingBottom: 20,
+  },
+```
+
+But now you can see that the button is stretching to try and reach everywhere.. You need to add a containing view around the button. 
+
+so in `AddButton.tsx`, you can add a surrounding view and edit the styles so this becomes:
 
 ```
 export default class AddButton extends React.Component {
@@ -541,7 +547,7 @@ There is `pagingEnabled` which one can set to true, but that works for content t
 	  />
 ```
 
-Snap to interval, 365, because there’s 5 inset on each side (=10), detract from the width of the screen, 375 (though you can get the window dimensions too ofc!). You add the insets, and boom. bobs your uncle!
+Snap to interval, 365, because there’s 5 inset on each side (=10), detract from the width of the screen, 375 (though you can get the window dimensions too ofc!). You add the insets, and boom, done :). 
 
 You will need to set the decelerationRate to 0. because otherwise it will misalign, and not snap properly. 
 
