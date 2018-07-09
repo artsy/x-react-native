@@ -8,7 +8,7 @@ _We use basic view components to construct more complex user experiences on a da
 
 We’ll be making a list of bread items which you could add to basket, if you’d be doing your groceries. Also, to inspire users we include  a range of “recipes” you can make with all this delicious bread. 
 
-(img)
+![Final outcome](resources/images_post/15.png)
 
 ## Setup
 
