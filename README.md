@@ -1,6 +1,7 @@
 # Artsy x React-Native
 
-A conference aimed specifically at iOS native engineers who are interested in React Native.
+A conference aimed specifically at iOS native engineers who are interested in React Native. The conference wrap-up page
+with videos and slides is available at http://artsy.github.io/artsy-x-react-native.html
 
 ## Schedule
 
@@ -37,48 +38,58 @@ A conference aimed specifically at iOS native engineers who are interested in Re
 
 How React Native works in a brown-field app.
 
-- [slides will go here]()
-- [video will go here]()
+- [slides](https://speakerdeck.com/artsyopensource/adding-react-native-to-an-existing-app-artsy-x-react-native-2018)
+- [video](https://www.youtube.com/watch?v=qupndH1zW_g)
 
 ### Artsy Omakase by [@orta][]
 
 The choices we made in the library and tooling eco-system, and how we made them.
 
 - [notes](talks/artsy_omakase.md)
-- [slides will go here]()
-- [video will go here]()
+- [slides](https://speakerdeck.com/artsyopensource/the-artsy-omakase-artsy-x-react-native-2018)
+- [video](https://www.youtube.com/watch?v=1Z3loALSVQM)
 
 ### Learning how to learn by [@mennenia][]
 
 How to stay sane and ship great stuff while moving from native to React Native.
 
-- [slides will go here]()
-- [video will go here]()
+- [slides](https://speakerdeck.com/artsyopensource/learning-how-to-learn-artsy-x-react-native)
+- [video](https://www.youtube.com/watch?v=zqnJBksguVI)
 
 ## Artsy Q & A
 
-- [questions for the moerator](questions/for_moderator.md)
-- [video will go here]()
+- [video](https://www.youtube.com/watch?v=Q2tfkpkmRLE)
+- [questions for the moderator](questions/for_moderator.md)
 
 ## Artsy x React-Native Workshops
 
-### Workshop 1.1 - React Native under the hood
+### Workshop 1.1 - Building a Components Library
+
+- Speaker: Orta + Maxim
+- [Video](https://www.youtube.com/watch?v=ucQXL4vkP78)
+- Folder: [`workshops/components_library`](workshops/components_library)
+- Topics:
+  - Going through [this blog post](http://artsy.github.io/blog/2018/04/17/making-a-components-pod/).
+
+### Workshop 1.2 - React Native under the hood
 
 - Speaker: Eloy
 - Folder: [`workshops/under_the_hood`](workshops/under_the_hood)
 - Topics:
   - `react-native init`
   - The iOS app that this ships with the default template
-  - How React Native
 
-### Workshop 1.2 - Building a Components Library
+### Workshop 2.1 - React Native Bread and Butter
 
-- Speaker: Orta + Maxim
-- Folder: [`workshops/components_library`](workshops/components_library)
+- Speaker: Maxim + Eloy
+- [Video](https://www.youtube.com/watch?v=CIG4Fc2ixis)
+- Folder: [`workshops/primitives`](workshops/primitives)
 - Topics:
-  - Going through [this blog post](http://artsy.github.io/blog/2018/04/17/making-a-components-pod/).
+  - Implementing a design
+  - Using a FlatList, ScrollView
+  - Flexbox basics
 
-### Workshop 2.1 - Minimum Viable Tooling
+### Workshop 2.2 - Minimum Viable Tooling
 
 - Speaker: Orta
 - Folder: [`workshops/minimum_viable_tooling`](workshops/minimum_viable_tooling)
@@ -87,16 +98,6 @@ How to stay sane and ship great stuff while moving from native to React Native.
   - Babel / TypeScript
   - React Native Packager
   - Jest
-
-### Workshop 2.2 - React Native Primitives
-
-- Speaker: Maxim + Eloy
-- Folder: [`workshops/tooling_for_pleasure`](workshops/tooling_for_pleasure)
-- Topics:
-  - `View` -> `UIView`
-  - `Text` -> `UILabel`
-  - `Image` -> `UIImageView`
-  - `FlatList` -> `UITableView`/`UICollectionView`
 
 [@orta]: https://twitter.com/orta
 [@alloy]: https://twitter.com/alloy
